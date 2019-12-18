@@ -95,11 +95,105 @@ React favors the idea of one-way data flow: data changes come from the "top" of 
 
 ---
 
-n. What is the canonical manner in which children communicate events with their parent components? 
+8. What is the canonical manner in which children communicate events with their parent components? 
 
 <details><summary><b>Answer</b></summary>
 <p>
 The parent gives the child a function to call when a particular event occurs.
+</p>
+</details>
+
+---
+
+9. How do you bind `this` to the component when we define our own custom component methods? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Use a pattern like the following:
+```
+class Product extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleUpVote = this.handleUpVote.bind(this)
+  }
+   
+  // ...
+} 
+```
+</p>
+</details>
+
+---
+
+10. Does a child component own its own state? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Yes. 
+</p>
+</details>
+
+---
+
+11. Every React component is rendered as a function of \______ and \________.
+
+<details><summary><b>Answer</b></summary>
+<p>
+Its `this.props` and `this.state`. Every time either of those is updated, the component will re-render itself.
+</p>
+</details>
+
+---
+
+12. Is the rendering of a React component deterministic? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Yes. Given a set of props and a set of state, a React component will always render a single way. This approach makes for a powerful UI consistency guarantee.
+</p>
+</details>
+
+---
+
+13. What is the lifecycle method that is invoked after our component has mounted to the page? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+`componentDidMount()`
+</p>
+</details>
+
+---
+
+14. How do you modify the state after setting the initial state? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+You have to use `this.setState()` (as opposed to setting it directly `this.state = // some code` in `constructor()`).
+This method triggers the React component to re-render, among other things.
+
+NEVER modify state outside of `this.setState()`. This function has important hooks around state modification.
+</p>
+</details>
+
+---
+
+15. True or False: It is best practice to treat the state object as immutable. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+True
+</p>
+</details>
+
+---
+
+16. What is a preset in Babel? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+A set of plugins used to support particular language features.
 </p>
 </details>
 
