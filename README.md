@@ -356,46 +356,55 @@ All React components must act like pure functions with respect to their props. T
 
 ---
 
-n. 
+28. True or False: Class components should always call the base constructor with `props` (i.e., super(props)). 
 
 <details><summary><b>Answer</b></summary>
 <p>
+True
 </p>
 </details>
 
 ---
 
-n. 
+29. What is mounting and unmounting? 
 
 <details><summary><b>Answer</b></summary>
 <p>
+Mounting is when a component is rendered to the DOM for the first time.
+Unmounting is when the DOM produced by the component is removed.
 </p>
 </details>
 
 ---
 
-n. 
+30. What are the two lifecycle methods and when do they run? 
 
 <details><summary><b>Answer</b></summary>
 <p>
+`componentDidMount()` runs after the component output has been rendered to the DOM.
+`componentWillUnmount()` runs immediately before a component is unmounted and destroyed.
 </p>
 </details>
 
 ---
 
-n. 
+31. What are three things to remember about state? 
 
 <details><summary><b>Answer</b></summary>
 <p>
+- Do not modify state directly. Use `setState()` instead. The only place where you can assign `this.state` is the constructor.
+- State updates may be asynchronous. Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state.
+- State updates are merged.
 </p>
 </details>
 
 ---
 
-n. 
+32. Why is state often called local or encapsulated? 
 
 <details><summary><b>Answer</b></summary>
 <p>
+It is not accessible to any component other than the one that owns and sets it.
 </p>
 </details>
 
