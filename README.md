@@ -199,11 +199,212 @@ A set of plugins used to support particular language features.
 
 ---
 
-n. question 
+17. You use \______ to specify string literals as attributes in JSX, and \________________ to embed a JavaScript expression in an attribute.
 
 <details><summary><b>Answer</b></summary>
 <p>
-Answer
+quotes; curly braces
+
+Examples:
+```
+const element1 = <div tabIndex="0"></div>;
+const element2 = <img src={user.avatarUrl}></img>;
+```
+</p>
+</details>
+
+---
+
+18. What naming convention does React DOM use for attribute names in JSX? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+camelCase (e.g., className instead of class, tabIndex instead of tabindex)
+</p>
+</details>
+
+---
+
+19. Is it safe to embed user input in JSX? For example:
+```
+const title = response.potentiallyMaliciousInput;
+const element = <h1>{title}</h1>;
+```
+
+<details><summary><b>Answer</b></summary>
+<p>
+Yes. By default, React DOM escapes any values embedded in JSX before rendering them. 
+</p>
+</details>
+
+---
+
+20. What does JSX compile to? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+React.createElement() calls.
+
+These two examples are identical:
+```
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+```
+
+```
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+</p>
+</details>
+
+---
+
+21. What is the smallest building block of React apps? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Elements. An element describes what you want to see on the screen (e.g., `const element = <h1>Hello, world</h1>;`).
+</p>
+</details>
+
+---
+
+22. True or False: React elements are immutable. Once you create an element, you can’t change its children or attributes. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+True. The only way to update the UI is to create a new element and pass it to ReactDOM.render().
+</p>
+</details>
+
+---
+
+23. How are components like JavaScript functions? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+</p>
+</details>
+
+---
+
+24. What is a function component? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+A function that accepts a single object argument with data and returns a React element.
+
+Example:
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+</p>
+</details>
+
+---
+
+25. How do you use an ES6 class to define a component equivalent to the following?
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+<details><summary><b>Answer</b></summary>
+<p>
+```
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1> 
+  }
+}
+```
+</p>
+</details>
+
+---
+
+26. True or False: You can start component names with a lowercase or capital letter. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+False. Always start component names with a capital letter.
+
+React treats components starting with lowercase letters as DOM tags. For example, <div /> represents an HTML div tag, but <Welcome /> represents a component and requires Welcome to be in scope.
+</p>
+</details>
+
+---
+
+27. What is the single strict rule of React? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+All React components must act like pure functions with respect to their props. They must never modify their props.
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
 </p>
 </details>
 
