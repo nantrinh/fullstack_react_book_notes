@@ -410,6 +410,87 @@ It is not accessible to any component other than the one that owns and sets it.
 
 ---
 
+33. What is the framework used in the FullStack React book for developing a React app from scratch? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+- Break the app into components
+- Build a static version of the app
+- Determine what should be stateful
+- Determine in which component each piece of state should live
+- Hard-code initial states
+- Add inverse data flowComponents
+- Add server communication
+</p>
+</details>
+
+---
+
+34. Why are keys important? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Keys help React identify which items have changed, are added, or are removed. The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys. If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
+</p>
+</details>
+
+---
+
+35. Why might it be a bad idea to use indexes for keys? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+It may negatively impact performance and may cause issues with component state if the order of items changes. 
+</p>
+</details>
+
+---
+
+36. Do keys get passed to your components? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+No. Keys serve as a hint to React but they don’t get passed to your components. If you need the same value in your component, pass it explicitly as a prop with a different name. With the example below, the Post component can read props.id, but not props.key.
+
+```
+const content = posts.map((post) =>
+  <Post
+    key={post.id}
+    id={post.id}
+    title={post.title} />
+);
+```
+</p>
+</details>
+
+---
+
+37. What are three questions to ask about each piece of data to figure out if it is state? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+- Is it passed in from a parent via props? If so, it probably isn’t state.
+- Does it remain unchanged over time? If so, it probably isn’t state.
+- Can you compute it based on any other state or props in your component? If so, it isn’t state.
+</p>
+</details>
+
+---
+
+38. What steps should you follow to determine which component should own what state? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+For each piece of state in your application:
+
+- Identify every component that renders something based on that state.
+- Find a common owner component (a single component above all the components that need the state in the hierarchy).
+- Either the common owner or another component higher up in the hierarchy should own the state.
+- If you can’t find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common owner component.
+</p>
+</details>
+
+---
 n. 
 
 <details><summary><b>Answer</b></summary>
