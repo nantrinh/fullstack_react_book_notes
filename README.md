@@ -491,6 +491,172 @@ For each piece of state in your application:
 </details>
 
 ---
+
+39. True or False: `defaultValue` sets the value of the input field for all renders. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+False. defaultValue only sets the value of the input field for the initial render. Instead of using defaultValue , we can connect our input fields directly to our component’s state using value.
+
+Example:
+```javascript
+<div className='field'>
+  <label>Title</label>
+  <input
+    type='text'
+    value={this.state.title}
+  />
+</div>
+```
+
+With this change, our input fields would be driven by state. Whenever the state properties `title` or `project` change, our input fields would be updated to reflect the new value.
+</p>
+</details>
+
+---
+
+40. How can you force a React component to re-render? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+`forceUpdate()`
+</p>
+</details>
+
+---
+
+41. Suppose your top-level component is TimerDashboard and it has two children, EditableTimerLIst and ToggleableTimerForm. Which happens first: (a) the children are rendered, or (b) TimerDashboard's `componentDidMount`method runs.
+
+<details><summary><b>Answer</b></summary>
+<p>
+a. the children are rendered first.
+</p>
+</details>
+
+---
+
+42. What is optimistic updating? Why is it called "optimistic"? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Updating the client locally before waiting to hear from the server.
+It makes our app as responsive as possible.
+We are being optimistic that the request would succeed.
+</p>
+</details>
+
+---
+
+43. Do we manipulate the actual DOM in React? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+No. We maniuplate the virtual representation and let React take care of changing the browser's DOM.
+</p>
+</details>
+
+---
+
+44. Why not modify the actual DOM? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+- It's hard to keep track of changes
+- It can be low: modifying the actual DOM is costly
+</p>
+</details>
+
+---
+
+45. Are virtual DOM and shadow DOM the same thing? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+No.
+</p>
+</details>
+
+---
+
+46. React's Virtual DOM is a tree of /________. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+ReactElements
+</p>
+</details>
+
+---
+
+47. What two things does `ReactDom.render()` require? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+1. the root of our virtual tree
+2. the mount location: where we want React to write to the actual browser DOM
+</p>
+</details>
+
+---
+
+48. Our browser doesn't know how to read JSX, so how is JSX possible? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+JSX is transformed into JavaScript by using a pre-processor build-tool before we load it with
+the browser.
+When we write JSX, we pass it through a “compiler” (sometimes we say the code is transpiled) that converts the JSX to JavaScript. The most common tool for this is a plugin to babel , which we’ll cover
+later.
+</p>
+</details>
+
+---
+
+49. What do we use instead of `class` and `for` in JSX? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+`className` and `htmlFor`
+</p>
+</details>
+
+---
+
+50. If we want to apply our own attributes that the HTML spec does not cover, we have to prefix the attribute key with the string "/_____".
+
+<details><summary><b>Answer</b></summary>
+<p>
+data-
+
+This requirement only applies to DOM components that are native to HTML and does not mean custom components cannot accept arbitrary keys as props.
+
+`<div data-dismissible={true}>`
+</p>
+</details>
+
+---
+
+51. We can use any of the standard set of web accessibility attributes on an element with the key prepended with the string "/____".
+
+<details><summary><b>Answer</b></summary>
+<p>
+aria
+
+`<div aria-hidden={true}>`
+</p>
+</details>
+
+---
+
+52. JSX is syntactic sugar to call `React.createElement`. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
 n. 
 
 <details><summary><b>Answer</b></summary>
@@ -499,3 +665,112 @@ n.
 </details>
 
 ---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
