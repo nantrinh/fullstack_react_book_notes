@@ -648,7 +648,293 @@ aria
 
 ---
 
-52. JSX is syntactic sugar to call `React.createElement`. 
+52. JSX is syntactic sugar to call /____________.
+
+<details><summary><b>Answer</b></summary>
+<p>
+`React.createElement` 
+</p>
+</details>
+
+---
+
+53. A ReactComponent is a JavaScript object that, at a minimum, has what? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+a `render()` function
+</p>
+</details>
+
+---
+
+54. What is `render()` expected to return? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+a ReactElement, which is a representation of a DOM element in the Virtual DOM.
+</p>
+</details>
+
+---
+
+55. What does React do when you return `null` or `false` from a `render()` method? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+renders an empty element (a `<noscript />` tag)
+</p>
+</details>
+
+---
+
+56. If we think of our component as a function, we can think of the /____ as the arguments.
+
+<details><summary><b>Answer</b></summary>
+<p>
+props
+</p>
+</details>
+
+---
+
+57. Passing data through attributes to the component is often called passing /______. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+props
+</p>
+</details>
+
+---
+
+58. What kind of JavaScript objects can you pass through props? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Anything (e.g., primitives, simple objects, functions, other React elements, Virtual DOM Nodes)
+</p>
+</details>
+
+---
+
+59. How can we specify the type of each prop? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Use PropTypes.
+
+We define PropTypes by setting a static (class) property propTypes . This object should be a map of prop-name keys to PropTypes values:
+```
+class MapComponent extends React.Component {
+  static propTypes = {
+    lat: PropTypes.number,
+    lng: PropTypes.number,
+    zoom: PropTypes.number,
+    place: PropTypes.object,
+    markers: PropTypes.array
+  };
+// ...
+}
+```
+</p>
+</details>
+
+---
+
+60. How can we set default props? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+Use the static property `defaultProps`.
+
+Example:
+```
+class Counter extends React.Component {
+  static defaultProps = {
+    initialValue: 1
+  };
+// ...
+};
+```
+</p>
+</details>
+
+---
+
+61. Suppose we want to expose a prop "globally", but we don't want to pass it down from the root to every leaf through every intermediate component. What can we do instead?
+
+<details><summary><b>Answer</b></summary>
+<p>
+Use the React context API.
+
+
+Example of setting a light or dark theme.
+1. Create a react context.
+```
+import React from 'react';
+  //...
+export const ThemeContext = React.createContext(themes.dark);
+```
+The React.createContext() method accepts a single argument which is the default value the context provides. In this case, our theme will default to the themes.dark value.
+
+The default value is used within the consumer in the case that the child component is not wrapped in a ThemeContext.Provider component.
+
+2. Use the `Provider` component to pass down the Theme. 
+```
+class App extends Component {
+  state = {theme: themes.dark};
+
+  changeTheme = evt => {
+    this.setState(state => ({
+      theme: state.theme === themes.dark ? themes.light : themes.dark
+    }));
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <ThemeContext.Provider value={this.state.theme}>
+          <Header />
+          <p className="App-intro">
+            To get started, edit <code>src/App.js</code> and save to reload.
+          </p>
+
+          <button onClick={this.changeTheme}>Change theme</button>
+        </ThemeContext.Provider>
+      </div>
+    );
+  }
+}
+```
+We pass the theme through `ThemeContext.Provider`. Notice we are passing the `value` prop in the `ThemeContext.Provider` component. Without this `value` prop, children components cannot access the value of the provider. 
+
+The ThemeContext.Provider component is a special component that is specifically designed to only pass down data to child components.
+
+3. Use the `Consumer` component to consume the value of the context.
+```
+export const Header = props => (
+  <ThemeContext.Consumer>
+    {theme => (
+      <header
+        className="App-header"
+        style={{backgroundColor: theme.background}}
+      >
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title" style={{color: theme.foreground}}>
+          Welcome to React
+        </h1>
+      </header>
+    )}
+  </ThemeContext.Consumer>
+);
+```
+
+</p>
+</details>
+
+---
+
+62. How do you determine if a component is stateful? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+A component is stateful if it needs to hold on to a dynamic piece of data.
+</p>
+</details>
+
+---
+
+63. True or False: It is a good idea to have as many stateful components as possible. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+False. State introduces complexity and makes composing components more difficult.
+</p>
+</details>
+
+---
+
+64. True or False: Whenever a state update depends on the current state, it is preferable to pass a function to setState(). 
+
+<details><summary><b>Answer</b></summary>
+<p>
+True. Because setState() is asynchronous.
+</p>
+</details>
+
+---
+
+65. What is the difference between a controlled and uncontrolled component? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+A component is uncontrolled if knowing the application state is not enough to predict what it looks like.
+
+If a component is controlled if its value will always be specified by `render()` and our application state.
+</p>
+</details>
+
+---
+
+66. What three steps are required to convert an uncontrolled `input` component to a controlled one? 
+
+<details><summary><b>Answer</b></summary>
+<p>
+- add a place in `state` to store its value
+- provide the location in `state` as its `value` prop
+- add an `onChange` handler that will update its value in `state` 
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
+
+<details><summary><b>Answer</b></summary>
+<p>
+</p>
+</details>
+
+---
+
+n. 
 
 <details><summary><b>Answer</b></summary>
 <p>
