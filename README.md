@@ -889,37 +889,45 @@ If a component is controlled if its value will always be specified by `render()`
 
 ---
 
-n. 
+67. What does it mean when we prefix a variable name with an underscore in the state? 
 
 <details><summary><b>Answer</b></summary>
 <p>
+It is a convention to highlight that it is purely presentational (e.g., `_loading` used to hide/show the loading indicator image)
 </p>
 </details>
 
 ---
 
-n. 
+68. Create React App is just a boilerplate generator. The /___________ package, specified in `package.json`, is the engine that makes everything work. 
 
 <details><summary><b>Answer</b></summary>
 <p>
+`react-scripts`
 </p>
 </details>
 
 ---
 
-n. 
+69. Where does this line come from in `index.html`? `<script type="text/javascript" src="/static/js/bundle.js"></script>` Where is `bundle.js` located? What does it contain?
 
 <details><summary><b>Answer</b></summary>
 <p>
+The Webpack development server inserted this line.
+
+`bundle.js` does not exist on disk; the Webpack development server produces this file on the fly and keeps it in memory. When our browser makes a request to localhost:3000/, Webpack is serving its modified version of index.html and bundle.js from memory.
+
+`bundle.js` contains all the Javascript code that our app needs to run. Not only does it contain the entire source for App.js, it contains the entire source for the React library.
 </p>
 </details>
 
 ---
 
-n. 
+70. True or False: Everything is a module in Webpack, including svg and css files. 
 
 <details><summary><b>Answer</b></summary>
 <p>
+True
 </p>
 </details>
 
